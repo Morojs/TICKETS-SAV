@@ -1,9 +1,11 @@
-package com.sav.models;
+package com.example.demo.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -14,12 +16,12 @@ public class TicketStatus {
 	@EmbeddedId
 	private TicketStatusKey id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@MapsId("ticketId")
 	@JoinColumn(name = "ticket_id")
 	private Ticket ticket;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@MapsId("statusId")
 	@JoinColumn(name = "status_id")
 	private Status status;

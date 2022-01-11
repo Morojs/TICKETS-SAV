@@ -1,4 +1,4 @@
-package com.sav.models;
+package com.example.demo.entity;
 
 import java.util.Set;
 
@@ -6,37 +6,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ticket {
-	static final long serialVersionUID = -476067348552556658L;
+public class Status {
+	
+	static final long serialVersionUID = -136067348552556409L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-	@ManyToOne
-	@JoinColumn(name = "idType", nullable = false)
-	private Type type;
-
+	
+	private String libelle;
 	private String description;
-	private String objet;
-
-	@OneToMany(mappedBy = "ticket")
+	
+	@OneToMany(mappedBy = "status")
 	Set<TicketStatus> ticketStatus;
+
+	public Status() {
+		super();
+	}
+
+	
 
 	public long getId() {
 		return id;
 	}
 
-	public Type getType() {
-		return type;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	public String getDescription() {
@@ -45,14 +52,6 @@ public class Ticket {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getObjet() {
-		return objet;
-	}
-
-	public void setObjet(String objet) {
-		this.objet = objet;
 	}
 
 
