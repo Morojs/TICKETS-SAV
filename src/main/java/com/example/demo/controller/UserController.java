@@ -14,7 +14,6 @@ import com.example.demo.service.UserService;
 import javax.annotation.PostConstruct;
 
 @RestController
-@RequestMapping("api/users")
 public class UserController {
 
     @Autowired
