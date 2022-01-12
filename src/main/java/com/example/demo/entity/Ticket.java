@@ -26,6 +26,10 @@ public class Ticket {
 
 	@OneToMany(mappedBy = "ticket")
 	Set<TicketStatus> ticketStatus;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public long getId() {
 		return id;
@@ -53,6 +57,22 @@ public class Ticket {
 
 	public void setObjet(String objet) {
 		this.objet = objet;
+	}
+
+	public Set<TicketStatus> getTicketStatus() {
+		return ticketStatus;
+	}
+
+	public void setTicketStatus(Set<TicketStatus> ticketStatus) {
+		this.ticketStatus = ticketStatus;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

@@ -11,7 +11,7 @@ public class Type {
 	static final long serialVersionUID = -136067302152556409L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	private String libelle;
 	
@@ -22,11 +22,11 @@ public class Type {
 		super();
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

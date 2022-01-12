@@ -8,6 +8,7 @@ import com.example.demo.dao.UserDao;
 import com.example.demo.entity.Role;
 import com.example.demo.entity.User;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -22,8 +23,14 @@ public class UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    
+   
+    public User findById(String id) {
+		return userDao.findById(id).get();
+	}
 
-    public void initRoleAndUser() {
+	public void initRoleAndUser() {
 
         Role adminRole = new Role();
         adminRole.setRoleName("Admin");
@@ -59,4 +66,6 @@ public class UserService {
     public String getEncodedPassword(String password) {
         return passwordEncoder.encode(password);
     }
+    
+    
 }
